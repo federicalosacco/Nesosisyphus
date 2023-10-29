@@ -1,0 +1,32 @@
+OTU = {
+  
+  DATA = {
+    uberon-male_organism:sisyphus_vicinus[this = True, linksTraits = True] .rdfs-label 'Sisyphus (Nesosisyphus) vicinus';
+  }
+
+  #Description based on the holotype of Sisyphus (Nesosisyphus) draco collected in Mauritius, Mare Aux Songes (2007), in a soil sample
+
+  TRAITS = {
+   
+    #Head
+    #Oval-shaped
+    this > aism-head_capsule > pato-ovate;
+    #Head with two rounded swells on the vertex
+    this > aism-head_capsule > hao-vertex >> pato-swollen; 
+    #Genae narrowing onward with sharp angles on apical half
+    this > hao-gena > bspo-distal_region >> pato-sharp
+    #Clypeus not upcurved, bearing four triangular teeth quite blunt apically
+    this > hao-clypeus > aism-lateral_clypeal_tooth_1 >> (pato-blunt, pato-flat)
+    this > hao-clypeus > aism-lateral_clypeal_tooth_2 >> (pato-blunt, pato-flat)
+    #Clypeus with a small protrusion separating medial teeth which are more prominent than lateral ones
+    this > hao-clypeus > bspo-medial_region > hao-clypeal_tooth 
+   
+
+
+
+  }
+}
+
+
+
+
