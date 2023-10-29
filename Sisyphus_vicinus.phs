@@ -1,94 +1,131 @@
 OTU = {
   
   DATA = {
-    uberon-male_organism[this = True] .rdfs-label 'Sisyphus (Nesosisyphus) vicinus';
+    uberon-male_organism:sisyphus_vicinus[this = True, linksTraits = True] .rdfs-label 'Sisyphus (Nesosisyphus) vicinus';
   }
 
-  TRAITS = {
-    this >> (pato-ovate, pato-convex, pato-high_brightness);
-    this > bspo-posterior_region >> pato-elongated;
+  #Description based on one specimen of Sisyphus (Nesosisyphus) vicinus collected on Mt. Cocotte (Mauritius) on 15-17.II.2021
 
-    # Lenght of the body
+  TRAITS = {
+    #Body
+    #Oval-shaped, strongly convex, and sligthly elongated toward apex. Surface shiny, mostly glabrous; 
+    #coloration dark brown to yellowish brown with soft bronze reflections
+    this >> (pato-ovate, pato-convex, pato-high_brightness);
+    this > bspo-dorsal_region >> pato-glabrous;
+    this > bspo-posterior_region >> pato-elongated;
+    this > uberon-chitin-based_cuticle >> (pato-dark_brown, pato-yellow_brown, pato-bronze);
+    #Lenght
     this > pato-length .iao-is_quality_measured_as
     iao-measurement_datum:md-92e99a .iao-has_measurement_unit_label unit-millimeter;
     iao-measurement_datum:md-92e99a .iao-has_measurement_value 4.0;
 
-    # Head strongly punctate, punctuation weakly fades close to the antero-lateral edges
+
+
+    #Head
+    #Head punctate, punctuation weakly fades close to the antero-lateral edges
     this > aism-head_capsule > bspo-dorsal_side > bspo-antero-lateral_region > aism-punctate_cuticle > aism-cuticular_puncture >> pato-depth:depth_vicinus;
     pato-depth:depth_vicinus |<| pato-depth << aism-cuticular_puncture < aism-punctate_cuticle < bspo-postero-medial_region < bspo-dorsal_region < uberon-head;
-    
-    this > aism-head_capsule >> (pato-dark_brown, pato-bronze)
+    #Genae sharply angled;
+    this > aism-gena >> pato-sharp;
+    #Two upcurved teeth on the anterior edge of the clypeus
+    this > aism-lateral_clypeal_tooth_1 >> (pato-sharp, pato-upturned);
+    #Incision between the medial teeth is rounded
+    this > aism-clypeal_margin > bspo-medial_region >> pato-semicircular;
+    #Antennae with 8 segments
+    this > aism-antenna_with_8_antennomeres > colao-antennal_club > (aism-flagellomere_6, aism-flagellomere_7, aism-flagellomere_8);
+    #Maxillary palpi with 4 palpomeres
+    this > aism-maxillary_palpus_with_4_palpomeres;
+    #Labial palpi with 3 palpomeres
+    this > aism-labial_palpus_with_3_palpomeres;
 
-    # Two upcurved teeth on the anterior edge of the clypeus
-    this > colao-lateral_clypeal_tooth_1 >> (pato-sharp, pato-upturned);
-    # Incision between the teeth is rounded - clypeal_margin to be classified
-    this > clypeal_margin > bspo-medial_region >> pato-semicircular;
 
-    # Pronotum: glabrous with strong punctuation, rather strigate and oblique, diverging from the middle of the base
-    this > aism-pronotum >> (pato-dark_brown, pato-bronze, pato-glabrous, pato-wrinkled);
-    this > aism-pronotum > bspo-posterior_margin >> pato-smooth; # OR: this > aism-pronotum > bspo-posterior_margin !> row_of_punctures;
 
-    # Pronotum: postero-medial region impressed with a longitudinal groove
+    #Prothorax
+    #Pronotum dark brown, with soft bronze reflection
+    this > uberon-chitin-based_cuticle > aism-pronotum >> (pato-dark_brown, pato-bronze);
+    #Pronotum glabrous with punctuation rather strigate and oblique, diverging from the middle of the base
+    this > aism-pronotum >> (pato-glabrous, pato-wrinkled);
+    #Pronotum with posterior margin without row of punctures
+    this > aism-pronotum > bspo-posterior_margin !> aism-row_of_punctures;
+    #Postero-medial region of pronotum impressed with a longitudinal groove
     this > aism-pronotum > bspo-postero-medial_region > aism-cuticular_groove >> (pato-longitudinal_orientation, pato-acuminate);
-    
-    # Pronotum: lateral region nearly smooth
-    this > aism-pronotum > lateral |>| pato-smooth;
+    #Lateral region of pronotum nearly smooth
+    this > aism-pronotum > bspo-distal_region |>| pato-smooth;
 
-    # Elytra: not pubescent with the exception of a few hairs on the frons and some extremely short rudimentary hairs on the elytral interstriae
+
+
+    #Elytra
+    #Elytra not pubescent with the exception of a few hairs on the frons and some extremely short rudimentary hairs on the elytral interstriae
     this > colao-elytron > aism-punctate_cuticle > aism-cuticular_puncture > aism-cuticular_seta >> pato-decreased_magnitude;
-
-    # The humeral and apial calli are well developed
-    this > colao-elytral_humerus > pato-swollen;
-    this > colao-elytron > bspo-distal_region > bspo-medial_region >> pato-swollen;
-
-    # Hind wings and venation fully developed
-    this > aism-hind_wing >> pato-functional;
-
-    # I interstriae dark brown, II and III entirely yellow, IV and V yellow at base and at apex, VI completely dark brown, VII yellow at base
+    #Humeral and apial calli are well developed and yellow in color
+    this > colao-elytral_humerus >> (pato-swollen, pato-yellow);
+    this > colao-elytron > bspo-posterior_region > bspo-medial_region >> (pato-swollen, pato-yellow);
+    #I interstriae dark brown, II and III entirely yellow, IV and V yellow at base and at apex, VI completely dark brown, VII yellow at base
     this > (colao-elytral_interstria_1, colao-elytral_interstria_6) >> pato-dark_brown;
     this > (colao-elytral_interstria_2, colao-elytral_interstria_3) >> pato-yellow;
     this > colao-elytral_interstria_4 > bspo-medial_region >> pato-dark_brown;
     this > colao-elytral_interstria_5 > bspo-medial_region >> pato-dark_brown;
-    this > colao-elytral_interstria_4 > (bspo-proximal_region, bspo-distal_region) >> pato-yellow;
-    this > colao-elytral_interstria_5 > (bspo-proximal_region, bspo-distal_region) >> pato-yellow;
+    this > colao-elytral_interstria_4 > (bspo-anterior_region, bspo-posterior_region) >> pato-yellow;
+    this > colao-elytral_interstria_5 > (bspo-anterior_region, bspo-posterior_region) >> pato-yellow;
     this > colao-elytral_interstria_7 > colao-elytral_humerus >> pato-yellow;
-
-    # Striae punctate; fine punctation on interstriae arranged in rows on each side of striae.
+    this > colao-elytral_interstria_7 > (bspo-medial_region, bspo-posterior_region) >> pato-dark_brown;
+    #Striae punctate; fine punctation on interstriae arranged in rows on each side of striae.
     this > colao-elytral_stria > aism-punctate_cuticle;
+    this > colao-elytral_interstria > aism-row_of_punctures;
+    #Interstriae flat
+    this > colao-elytral_interstria > bspo-anterior_region >> pato-flat;
+    #Elytral microsculpture with isodiametric meshes clearly impressed
+    this > colao-elytron > hao-cuticle >> aism-isodiametrically_microreticulate;
+    #Scutellum absent
+    this > aism-scutellum >> pato-concealed;
+    #Hind wings and venation fully developed
+    this > aism-hind_wing >> pato-functional;
+    #Hind wings three times longer than elytra
+    this > aism-hind_wing 'elytra' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa4 .iao-has_measurement_unit_label 'lenght' << 'hind wing';
+																					iao-measurement_datum:md-fddaa4 .iao-has_measurement_value '3';
 
-    # Abdomen: with 8 segments
-    this > ? # how to count adbominal segments
 
+
+    #Abdomen
+    #Abdomen with 7 segments
+    this > aism-abdomen_with_7_sternites
     # Pygidium: nearly V-shaped, simply punctuated with yellowish setation
     this > aism-abdominal_tergite_VIII > pato-V-shaped;
     this > aism-abdominal_tergite_VIII > aism-punctate_cuticle;
     this > aism-abdominal_tergite_VIII > aism-cuticular_seta >> pato-yellow;
 
-    # Legs: hind femora hollowed beneath their apical third with a crenulate internal margin. Ask ventral or distal first?
-    this > aism-metafemur > bspo-ventral_region > bspo-distal_region > aism-cuticular_depression;
+
+
+    #Legs
+    #Tarsi with 5 segments;
+    this > (aism-protarsus_with_5_protarsomeres, aism-mesotarsus_with_5_mesotarsomeres, aism-metatarsus_with_5_metatarsomeres);
+    #Protibia with 3 teeth;
+    this > aism-protibia:id-6b42fe > (aism-dorsal_protibial_cuticular_tooth_1, aism-dorsal_protibial_cuticular_tooth_2, aism-dorsal_protibial_cuticular_tooth_3);
+    #Metafemora hollowed beneath their apical third with a crenulate internal margin. Ask ventral or distal first?
+    this > aism-metafemur > bspo-ventral_region > bspo-posterior_region > aism-cuticular_depression;
     this > aism-metafemur > bspo-ventral_region >> pato-scalloped;
-
-    # Legs: metatarsi 1.5 longer than metatibiae
+    #Metatibia curved in the middle
+    this > aism-metatibia > bspo-medial_region >> pato-curved;
+    #Metatarsi 1.15 longer than metatibiae
     this > aism-metatarsus 'tibia' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa5 .iao-has_measurement_unit_label 'lenght' << 'tarsus';
-																					iao-measurement_datum:md-fddaa5 .iao-has_measurement_value '1.5';
+																					iao-measurement_datum:md-fddaa5 .iao-has_measurement_value '1.15';
    
    
-    # Aedeagus: distal part of paramers spout-shaped whithout a pair of inner sclerotised flaps on the upperside.
-    this > colao_ventral_membrane_of_paramere |>| pato-thickness;
     
-    # Phallobase: with two lateral tubercules. 
-    this > aism-phallobase > bspo-proximal_region > bspo-dorsal_region > uberon-tubercle >> pato-bilaterally_paired;
-
-    # Endophallites: axial sclerite with a slender spirally-coiled base, continuing to an elongate and straight duct extremely sharp towards the apex.
+    #Genitalia
+    #Parameres symmetrical
+    this > aism-paramere >> pato-symmetrical;
+    #Distal part of paramers without a pair of inner sclerotised flaps on the upperside
+    this > colao_ventral_membrane_of_paramere |>| pato-thickness;
+    #Phallobase with two lateral tubercules
+    this > aism-phallobase > bspo-anterior_region > bspo-dorsal_region > uberon-tubercle >> pato-bilaterally_paired;
+    #Endophallites: axial sclerite with a slender spirally-coiled base, continuing to an elongate and straight duct extremely sharp towards the apex.
     this > aism-endophallus > colao-axial_endophallite > bspo-basal_region >> (pato-coiled, pato-slender);
-    this > aism-endophallus > colao-axial_endophallite > bspo-apical_region >> (pato-elongated, pato-straight, pato-sharp);
-
-    # Endophallites: subaxial sclerites, fronto-lateral peripheral sclerite and superior right peripheral sclerite are absent.
+    this > aism-endophallus > colao-axial_endophallite > bspo-distal_regio >> (pato-elongated, pato-straight, pato-sharp);
+    #Endophallites: subaxial sclerites, fronto-lateral peripheral sclerite and superior right peripheral sclerite are absent
     this > aism-endophallus !> (colao-subaxial_endophallite, colao-frontolateral_peripheral_endophallite, colao-superior_right_peripheral_endophallite);
 
     
-
-
 
 
   }

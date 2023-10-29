@@ -1,0 +1,122 @@
+OTU = {
+  
+  DATA = {
+    uberon-male_organism:sisyphus_rotundatus[this = True, linksTraits = True] .rdfs-label 'Sisyphus (Nesosisyphus) rotundatus';
+  }
+
+  #Description based on the holotype specimen of Sisyphus (Nesosisyphus) rotundatus collected on the S slope of Mt. Ory, Moka Range (Mauritius), on 18.XI.1944
+
+  TRAITS = {
+    #Body
+    #Rounded body shape, globose toward the apex, surface dark brown, moderately pubescent
+    this >> (pato-spherical, pato-convex);
+    this > bspo-posterior_region >> pato-spherical;
+    this > uberon-chitin-based_cuticle >> (pato-dark_brown, pato-high_brightness);
+    #Lenght
+    this > pato-length .iao-is_quality_measured_as
+    iao-measurement_datum:md-92e99a .iao-has_measurement_unit_label unit-millimeter;
+    iao-measurement_datum:md-92e99a .iao-has_measurement_value 3.9;
+
+
+
+    #Head
+    #Strongly punctate 
+    this > aism-head_capsule > bspo-dorsal_side > aism-punctate_cuticle > aism-cuticular_puncture;
+    #Genae rounded
+    this > aism-gena >> pato-curved;
+    #Clypeus quadridentate, upcurved antero-laterally, central pair of teeth which are more prominent and sharp than the lateral ones
+    this > aism-lateral_clypeal_tooth_1 >> (pato-sharp, pato-upturned);
+    this > aism-lateral_clypeal_tooth_2 >> (pato-blunt, pato-upturned);
+    #Incision between the medial teeth is rounded
+    this > aism-clypeal_margin > bspo-medial_region >> pato-curved;
+    #Antennae with 8 segments
+    this > aism-antenna_with_8_antennomeres > colao-antennal_club > (aism-flagellomere_6, aism-flagellomere_7, aism-flagellomere_8);
+    #Maxillary palpi with 4 palpomeres
+    this > aism-maxillary_palpus_with_4_palpomeres;
+    #Labial palpi with 3 palpomeres
+    this > aism-labial_palpus_with_3_palpomeres;
+
+
+
+    #Prothorax
+    #Pronotum dark brown, with soft bronze reflection
+    this > uberon-chitin-based_cuticle > aism-pronotum >> (pato-dark_brown, pato-bronze);
+    #Pronotum pubescent with strong punctuation rather strigate and oblique diverging from the middle of the base, rougose appereance
+    this > aism-pronotum >> (pato-pubescent, pato-wrinkled);
+    #Pronotum with posterior margin without a row of small punctures
+    this > aism-pronotum > bspo-posterior_margin !> aism-row_of_punctures;
+    #Postero-medial region of pronotum impressed with a longitudinal groove
+    this > aism-pronotum > bspo-postero-medial_region > aism-cuticular_groove >> (pato-longitudinal_orientation, pato-acuminate);
+    #Pronotum with lateral region punctate
+    this > aism-pronotum > bspo-distal_region > aism-punctate_cuticle;
+
+
+
+    #Elytra and hind wings
+    #Humeral and apial calli are absent
+    this > colao-elytral_humerus >> (pato-smooth);
+    this > colao-elytron > bspo-posterior_region > bspo-medial_region >> (pato-smooth);
+    #Striae 9 in number
+    this > colao-elytron:id-5770f5 > (colao-elytral_stria_1, colao-elytral_stria_2, colao-elytral_stria_3, colao-elytral_stria_4, colao-elytral_stria_5, colao-elytral_stria_6, colao-elytral_stria_7, colao-elytral_stria_8, colao-elytral_stria_9);
+    #Interstriae flat
+    this > colao-elytral_interstria >> pato-flat;
+    #Elytral microsculpture without isodiametric meshes
+    this > colao-elytron !> hao-cuticle >> aism-isodiametrically_microreticulate;
+    #Scutellum absent
+    this > aism-scutellum >> pato-concealed;
+    #Hind wings vestigial
+    this > aism-hind_wing >> pato-vestigial;
+    #Hind wings about one-third lenght of the elytra
+    this > aism-hind_wing >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-fddaa4 .iao-has_measurement_unit_label pato-length;
+																					iao-measurement_datum:md-fddaa4 .iao-has_measurement_value 0.33;
+   
+
+   
+    #Abdomen
+    #Abdomen with 7 segments
+    this > aism-abdomen_with_7_sternites
+    #Pygidium nearly V-shaped, simply punctuated with yellowish setation
+    this > aism-abdominal_tergite_VIII > pato-V-shaped;
+    this > aism-abdominal_tergite_VIII > aism-punctate_cuticle;
+    this > aism-abdominal_tergite_VIII > aism-cuticular_seta >> pato-yellow;
+
+
+
+    #Legs
+    #Tarsi with 5 segments
+    this > (aism-protarsus_with_5_protarsomeres, aism-mesotarsus_with_5_mesotarsomeres, aism-metatarsus_with_5_metatarsomeres);
+    #Protibia with 3 teeth
+    this > aism-protibia:id-6b42fe > (aism-dorsal_protibial_cuticular_tooth_1, aism-dorsal_protibial_cuticular_tooth_2, aism-dorsal_protibial_cuticular_tooth_3);
+    #Metafemora hollowed beneath their apical third, finely crenulate in the internal margin
+    this > aism-metafemur > bspo-ventral_region > bspo-distal_region > aism-cuticular_depression;
+    this > aism-metafemur > bspo-ventral_region >> pato-scalloped;
+    #Metatibia rather straight in the middle
+    this > aism-metatibia > bspo-medial_region >> pato-straight; 
+    #Metatarsi 0.89 shorter than metatibiae
+    this > aism-metatarsus 'tibia' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa5 .iao-has_measurement_unit_label 'lenght' << 'tarsus';
+																					iao-measurement_datum:md-fddaa5 .iao-has_measurement_value '0.89';
+
+    
+   
+    #Genitalia
+    #Parameres symmetrical
+    this > aism-paramere >> pato-symmetrical;
+    #Distal part of paramers without a pair of inner sclerotised flaps on the upperside
+    this > colao_ventral_membrane_of_paramere |>| pato-thickness;
+    #Phallobase with two lateral tubercules
+    this > aism-phallobase > bspo-proximal_region > bspo-dorsal_region > uberon-tubercle >> pato-bilaterally_paired;
+    #Endophallites: axial sclerite with a slender spirally-coiled base, continuing to an elongate and straight duct extremely sharp towards the apex.
+    this > aism-endophallus > colao-axial_endophallite > bspo-basal_region >> (pato-coiled, pato-slender);
+    this > aism-endophallus > colao-axial_endophallite > bspo-distal_region >> (pato-elongated, pato-straight, pato-sharp);
+    #Endophallites: subaxial sclerites, fronto-lateral peripheral sclerite and superior right peripheral sclerite are absent
+    this > aism-endophallus !> (colao-subaxial_endophallite, colao-frontolateral_peripheral_endophallite, colao-superior_right_peripheral_endophallite);
+
+    
+
+
+  }
+}
+
+
+
+

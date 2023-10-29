@@ -1,0 +1,131 @@
+OTU = {
+  
+  DATA = {
+    uberon-male_organism:sisyphus_regnardi[this = True, linksTraits = True] .rdfs-label 'Sisyphus (Nesosisyphus) regnardi';
+  }
+
+  #Description based on one specimen of Sisyphus (Nesosisyphus) regnardi collected on Mt. Le Pouce (Mauritius) on 12-15.II.2021
+
+  TRAITS = {
+    #Body
+    #Oval-shaped and quite convex, surface shiny with visible and well-developed pubescence, surface dark brown to reddish brown
+    this >> (pato-ovate, pato-convex, pato-high_brightness);
+    this > bspo-dorsal_region >> pato-pubescent;
+    this > uberon-chitin-based_cuticle >> (pato-dark_brown, pato-red_brown, pato-bronze);
+    #Lenght
+    this > pato-length .iao-is_quality_measured_as
+    iao-measurement_datum:md-92e99a .iao-has_measurement_unit_label unit-millimeter;
+    iao-measurement_datum:md-92e99a .iao-has_measurement_value 4.5;
+
+
+
+    #Head
+    #Strongly punctate 
+    this > aism-head_capsule > bspo-dorsal_side > aism-punctate_cuticle > aism-cuticular_puncture;
+    this > aism-head_capsule > bspo-dorsal_side > aism-punctate_cuticle > aism-cuticular_puncture > aism-cuticular_seta >> (pato-erect, pato-yellow);
+    #Genae rounded
+    this > aism-gena >> pato-curved;
+    #Clypeus quadridentate, upcurved antero-laterally, central pair of teeth which are more prominent and sharp than the lateral ones
+    this > aism-lateral_clypeal_tooth_1 >> (pato-sharp, pato-upturned);
+    this > aism-lateral_clypeal_tooth_2 >> (pato-blunt, pato-upturned);
+    #Incision between the medial teeth is straight-bottomed
+    this > aism-clypeal_margin > bspo-medial_region >> pato-straight;
+    #Antennae with 8 segments
+    this > aism-antenna_with_8_antennomeres > colao-antennal_club > (aism-flagellomere_6, aism-flagellomere_7, aism-flagellomere_8);
+    #Maxillary palpi with 4 palpomeres
+    this > aism-maxillary_palpus_with_4_palpomeres;
+    #Labial palpi with 3 palpomeres
+    this > aism-labial_palpus_with_3_palpomeres;
+
+
+
+    #Prothorax
+    #Pronotum dark brown, with soft bronze reflection
+    this > uberon-chitin-based_cuticle > aism-pronotum >> (pato-dark_brown, pato-bronze);
+    #Pronotum pubescent with strong punctuation rather strigate and oblique diverging from the middle of the base, rougose appereance
+    this > aism-pronotum >> (pato-pubescent, pato-wrinkled);
+    #Pronotum with posterior margin with a row of small punctures
+    this > aism-pronotum > bspo-posterior_margin > aism-row_of_punctures;
+    #Postero-medial region of pronotum impressed with a longitudinal groove
+    this > aism-pronotum > bspo-postero-medial_region > aism-cuticular_groove >> (pato-longitudinal_orientation, pato-acuminate);
+    #Pronotum with lateral region punctate
+    this > aism-pronotum > bspo-distal_region > aism-punctate_cuticle;
+
+
+
+    #Elytra and hind wings
+    #Homogenously pubescent along the interstriae, hairs are well-developed, curved and yellow in colour
+    this > colao-elytron > aism-punctate_cuticle > aism-cuticular_puncture > aism-cuticular_seta >> (pato-curved, pato-yellow);
+    #Humeral and apial calli are well developed, generally reddish-yellow as weel as the basal portion of all interstriae
+    this > colao-elytral_humerus >> (pato-swollen, pato-orange);
+    this > colao-elytron > bspo-posterior_region > bspo-medial_region >> (pato-swollen, pato-orange);
+    this > colao-elytron > bspo-anterior_region >> pato-orange;
+    #Striae 9 in number
+    this > colao-elytron:id-5770f5 > (colao-elytral_stria_1, colao-elytral_stria_2, colao-elytral_stria_3, colao-elytral_stria_4, colao-elytral_stria_5, colao-elytral_stria_6, colao-elytral_stria_7, colao-elytral_stria_8, colao-elytral_stria_9);
+    #Striae punctate; fine punctation on interstriae arranged in rows on each side of striae
+    this > colao-elytral_stria > aism-punctate_cuticle;
+    this > colao-elytral_interstria > bspo-distal_region > aism-row_of_punctures;
+    this > colao-elytral_interstria > bspo-proximal_region > aism-row_of_punctures;
+    #Interstriae flat, except the sutural ones, which are together particularly convex in their apical half
+    this > colao-elytral_interstria >> pato-flat;
+    this > colao-elytral_interstria_1 > bspo-posterior_region >> pato-convex;
+    #Elytral microsculpture with isodiametric meshes
+    this > colao-elytron > hao-cuticle >> aism-isodiametrically_microreticulate;
+    #Scutellum absent
+    this > aism-scutellum >> pato-concealed;
+    #Hind wings vestigial
+    this > aism-hind_wing >> pato-vestigial;
+    #Hind wings three-fourths of the elytra in lenght
+    this > aism-hind_wing 'elytra' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa4 .iao-has_measurement_unit_label 'lenght' << 'hind wing';
+																					iao-measurement_datum:md-fddaa4 .iao-has_measurement_value '0.75';
+   
+
+
+    #Abdomen
+    #Abdomen with 7 segments
+    this > aism-abdomen_with_7_sternites
+    #Pygidium nearly V-shaped, simply punctuated with yellowish setation
+    this > aism-abdominal_tergite_VIII > pato-V-shaped;
+    this > aism-abdominal_tergite_VIII > aism-punctate_cuticle;
+    this > aism-abdominal_tergite_VIII > aism-cuticular_seta >> pato-yellow;
+
+
+
+    #Legs
+    #Tarsi with 5 segments
+    this > (aism-protarsus_with_5_protarsomeres, aism-mesotarsus_with_5_mesotarsomeres, aism-metatarsus_with_5_metatarsomeres);
+    #Protibia with 3 teeth
+    this > aism-protibia:id-6b42fe > (aism-dorsal_protibial_cuticular_tooth_1, aism-dorsal_protibial_cuticular_tooth_2, aism-dorsal_protibial_cuticular_tooth_3);
+    #Metafemora hollowed beneath their apical third with a crenulate internal margin
+    this > aism-metafemur > bspo-ventral_region > bspo-distal_region > aism-cuticular_depression;
+    this > aism-metafemur > bspo-ventral_region >> pato-scalloped;
+    #Metatibia curved in the middle
+    this > aism-metatibia > bspo-medial_region >> pato-curved; 
+    #Metatarsi equals metatibiae in lenght
+    this > aism-metatarsus 'tibia' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa5 .iao-has_measurement_unit_label 'lenght' << 'tarsus';
+																					iao-measurement_datum:md-fddaa5 .iao-has_measurement_value '1';
+
+    
+   
+    #Genitalia
+    #Parameres symmetrical
+    this > aism-paramere >> pato-symmetrical;
+    #Distal part of paramers with a pair of inner sclerotised flaps on the upperside
+    this > colao_ventral_membrane_of_paramere |<| pato-thickness;
+    #Phallobase with two lateral tubercules
+    this > aism-phallobase > bspo-proximal_region > bspo-dorsal_region > uberon-tubercle >> pato-bilaterally_paired;
+    #Endophallites: axial sclerite with a slender spirally-coiled base, continuing to an elongate and curved duct extremely sharp towards the apex.
+    this > aism-endophallus > colao-axial_endophallite > bspo-basal_region >> (pato-coiled, pato-slender);
+    this > aism-endophallus > colao-axial_endophallite > bspo-distal_region >> (pato-elongated, pato-curved, pato-sharp);
+    #Endophallites: subaxial sclerites, fronto-lateral peripheral sclerite and superior right peripheral sclerite are absent
+    this > aism-endophallus !> (colao-subaxial_endophallite, colao-frontolateral_peripheral_endophallite, colao-superior_right_peripheral_endophallite);
+
+    
+
+
+  }
+}
+
+
+
+
