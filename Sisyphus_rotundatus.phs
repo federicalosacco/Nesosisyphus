@@ -61,7 +61,7 @@ OTU = {
     #Interstriae flat
     this > colao-elytral_interstria >> pato-flat;
     #Elytral microsculpture without isodiametric meshes
-    this > colao-elytron !> hao-cuticle >> aism-isodiametrically_microreticulate;
+    this > colao-elytron !> uberon-cuticle >> aism-isodiametrically_microreticulate;
     #Scutellum absent
     this > aism-scutellum >> pato-concealed;
     #Hind wings vestigial

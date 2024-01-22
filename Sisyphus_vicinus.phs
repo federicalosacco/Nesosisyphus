@@ -75,7 +75,7 @@ OTU = {
     #Interstriae flat
     this > colao-elytral_interstria > bspo-anterior_region >> pato-flat;
     #Elytral microsculpture with isodiametric meshes clearly impressed
-    this > colao-elytron > hao-cuticle >> aism-isodiametrically_microreticulate;
+    this > colao-elytron > uberon-cuticle >> aism-isodiametrically_microreticulate;
     #Scutellum absent
     this > aism-scutellum >> pato-concealed;
     #Hind wings and venation fully developed

@@ -55,13 +55,13 @@ OTU = {
     this > colao-elytral_humerus >> (pato-swollen);
     this > colao-elytron > bspo-posterior_region > bspo-medial_region >> (pato-swollen);
     #III interstria bearing a tubercle on its distal region
-    this > colao-elytral_interstria_3 > bspo-distal_region_region >> hao-tubercle;
+    this > colao-elytral_interstria_3 > bspo-distal_region_region >> uberon-tubercle;
     #Striae 9 in number
     this > colao-elytron:id-5770f5 > (colao-elytral_stria_1, colao-elytral_stria_2, colao-elytral_stria_3, colao-elytral_stria_4, colao-elytral_stria_5, colao-elytral_stria_6, colao-elytral_stria_7, colao-elytral_stria_8, colao-elytral_stria_9);
     #Interstriae convex
     this > colao-elytral_interstria >> pato-convex;
     #Elytral microsculpture without isodiametric meshes
-    this > colao-elytron !> hao-cuticle >> aism-isodiametrically_microreticulate;
+    this > colao-elytron !> uberon-cuticle >> aism-isodiametrically_microreticulate;
     #Scutellum absent
     this > aism-scutellum >> pato-concealed;
     #Hind wings and venation fully developed
@@ -97,6 +97,7 @@ OTU = {
     this > aism-metatarsus 'tibia' >> 'lenght' .iao-is_quality_measured_as iao-measurement_datum:md-fddaa5 .iao-has_measurement_unit_label 'lenght' << 'tarsus';
 																					iao-measurement_datum:md-fddaa5 .iao-has_measurement_value '1';
 
+    
     
    
     #Genitalia
